@@ -3,7 +3,7 @@ import './App.css'
 import useCurrencyinfo from './CustomHooks/useCurrencyinfo'
 import { Input } from './components'
 
-function App() {
+function App() { 
   const [amount, setAmount] = useState(0);
   const [from, setFrom] = useState("usd");
   const [to, setTo] = useState("npr");
@@ -13,7 +13,7 @@ function App() {
   const options = Object.keys(currencyInfo)   //this built-in method in js return the array of keys of object
 
   const swap = () => {
-    setFrom(to)
+    setFrom(to) 
     setFrom(from)
     setConvertedAmount(amount)
     setAmount(convertedAmount)
@@ -31,7 +31,7 @@ function App() {
     >
       <div className="w-full">
         <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
-          <form
+          <form 
             onSubmit={(e) => {
               e.preventDefault();
               convert();
@@ -41,14 +41,14 @@ function App() {
             <div className="w-full mb-1">
               <Input
                 label="From"
-                amount = {amount}
+                amount = {amount} 
                 currencyOptions={options}
                 onCurrencyChange={(currency)=>setAmount(amount)}
                 onAmountChange={(amount) => setAmount(amount)}
                 selectCurrency={from}
                 
               />
-            </div>
+            </div> 
             <div className="relative w-full h-0.5">
               <button
                 type="button"
