@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import useCurrencyinfo from './CustomHooks/useCurrencyinfo'
-import { Input } from './components'
+import { Input , Statusbar } from './components'
+import useConnectionstatus from './CustomHooks/useConnectionstatus'
 
 function App() { 
   const [amount, setAmount] = useState(0);
@@ -29,6 +30,7 @@ function App() {
         backgroundImage: `url(https://images.pexels.com/photos/17977099/pexels-photo-17977099.jpeg)`,
       }}
     >
+      <Statusbar/>
       <div className="w-full">
         <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
           <form 
@@ -75,6 +77,7 @@ function App() {
           </form>
         </div>
       </div>
+
     </div>
   )
 }
