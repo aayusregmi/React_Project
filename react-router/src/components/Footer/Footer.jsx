@@ -117,7 +117,7 @@ export default function Footer() {
                 className="w-4 h-4"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
+                fill="currentColor"     
                 viewBox="0 0 20 17"
               >
                 <path
