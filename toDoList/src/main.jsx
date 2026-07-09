@@ -1,24 +1,32 @@
-import { Children, StrictMode } from 'react'
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import Layout from './Layout.jsx'
 import Footer from './Component/Footer/Footer.jsx'
+import Header from './Component/Header/Header.jsx'
+import Todolist from './Component/Todolist/Todolist.jsx'
+import Home from './Component/Home/Home.jsx'
+import Github2 from './Component/Github2/Github2.jsx'
  
 const router = createBrowserRouter([
    {
     path : "/",
     element : <Layout/>,
-    children : [{
-     path : "",
-     element : ""
+    children : [
+      {
+      path :"",
+      element : <Home />
     },
-    { path : "todolist",
-      element : < ></>
+    {
+      path :"todolist",
+      element : <Todolist />
+    },
+    {
+      path : "github",
+      element : <Github2/>
     }
-   
-
   ]
    }
 ])
