@@ -9,6 +9,7 @@ import Header from './Component/Header/Header.jsx'
 import Todolist from './Component/Todolist/Todolist.jsx'
 import Home from './Component/Home/Home.jsx'
 import Github2 from './Component/Github2/Github2.jsx'
+import { githubinfo } from './Component/Github2/Github2.jsx'
  
 const router = createBrowserRouter([
    {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       element : <Todolist />
     },
     {
+      loader : githubinfo,
       path : "github",
       element : <Github2/>
     }

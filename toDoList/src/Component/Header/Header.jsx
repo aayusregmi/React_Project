@@ -14,10 +14,8 @@ const Header = () => {
               <NavLink to="/github" className={({isActive})=>
                 `${isActive ? "text-green-600 text-2xl" : "text-white"}`
               }>Github</NavLink>
-              
       </div>
     </div>
   )
 }
-
 export default Header
