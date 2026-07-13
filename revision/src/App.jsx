@@ -1,11 +1,10 @@
-import { useState } from 'react'
 import './App.css'
-import ProductionTab from './Components/ProductionTab'
+import Ludo from './Components/Ludo'
 function App() {
 
   return (
     <>
-    <ProductionTab/>
+    <Ludo/>
     </>
   )
 }
