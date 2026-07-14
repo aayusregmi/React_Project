@@ -1,11 +1,43 @@
-import React from 'react'
+import React, { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 const Todolist = () => {
-  return (
-    <>
-       
-    </>
-  )
-}
+  const [todos , setTodos] = useState([])
+  const [newTodo , setNewtodo] = useState([""]);
 
-export default Todolist
+  const handleEnter = (event) =>{
+      event.preventDefault();
+      setTodos([...todos , {task:newTodo , key:uuidv4()}])
+      setNewtodo("");
+  }
+  
+  const handleNewtodo = (e) =>{
+    setNewtodo(e.target.value);
+  }
+
+  const handleDlt = (id) =>{
+    console.log(id);
+    setTodos(todos.filter((todo) => todo.key != id ))
+  }
+
+  return (
+    <div className="w-screen h-screen flex justify-center items-center text-white">
+      <div className="bg-gray-600 w-1/2 h-40">
+        <div className="inputSection px-4">
+          <form><input value={newTodo} type="text" placeholder="Enter Your Task" className="inputText outline-0" onChange={handleNewtodo}/>
+          <button type="submit" className="bg-green-500 rounded-xl w-20 ml-3 p-1" onClick={handleEnter}>Enter</button>
+          </form>
+        </div>
+        <div className="px-7 flex flex-col"> {
+        todos.map((todo)=>
+          <li key={todo.key}>{todo.task || todo}<button value={todo.key} className="btnDlt ml-4 bg-blue-400 rounded-xl text-sm px-1" onClick={() => handleDlt(todo.key)}>Delete</button></li>
+        ) 
+      }
+      </div>
+      </div>
+    </div>
+
+  );
+};
+
+export default Todolist;
