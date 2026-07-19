@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 const Todolist = () => {
   const [todos , setTodos] = useState([])
   const [newTodo , setNewtodo] = useState([""]);
+  const [text , setText] = useState("UpperCase")
 
   const handleEnter = (event) =>{
       event.preventDefault();
@@ -20,6 +21,36 @@ const Todolist = () => {
     setTodos(todos.filter((todo) => todo.key != id ))
   }
 
+  const handleUppercase = () =>{
+    setTodos(todos.map((todo)=>{
+      return{
+         ...todo ,
+         task: todo.task.toUpperCase()
+      }
+    })) 
+  }
+   
+  const handleCaseChange = (id) =>{
+     setTodos(todos.map((todo)=>{
+        if(todo.key === id){
+          return{
+            ...todo , 
+            task: todo.task.toUpperCase()
+          }
+        }else{
+          return{
+            ...todo
+          }
+        }
+      })) 
+    if(text === "UpperCase"){
+      setText("LowerCase")
+    }else{
+      setText("Uppercase")
+    }
+  }
+  
+
   return (
     <div className="w-screen h-screen flex justify-center items-center text-white">
       <div className="bg-gray-600 w-1/2 h-40">
@@ -30,11 +61,14 @@ const Todolist = () => {
         </div>
         <div className="px-7 flex flex-col"> {
         todos.map((todo)=>
-          <li key={todo.key}>{todo.task || todo}<button value={todo.key} className="btnDlt ml-4 bg-blue-400 rounded-xl text-sm px-1" onClick={() => handleDlt(todo.key)}>Delete</button></li>
+          <li key={todo.key}>{todo.task || todo}<button value={todo.key} className="btnDlt ml-4 bg-blue-400 rounded-xl text-sm px-1" onClick={() => handleDlt(todo.key)}>Delete</button>
+          <button value={todo.key} className="btnDlt ml-4 bg-blue-400 rounded-xl text-sm px-1" onClick={() => handleCaseChange(todo.key)}>{text}</button>
+          </li>
         ) 
       }
       </div>
       </div>
+      <button className="bg-orange-500 rounded-2xl px-4 ml-4" onClick={handleUppercase}>UpperCase Todo's</button>
     </div>
 
   );
