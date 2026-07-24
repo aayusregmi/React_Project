@@ -5,9 +5,10 @@ import Comment from './comment'
 
 function App() {
   return (
-    <>
-   <CommentForm/>
-    </>
+    <div>
+    <CommentForm/>
+    <Comment/>
+    </div>
    
   )
 }
